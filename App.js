@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 import { useFonts, Inter_900Black, Inter_500Medium } from "@expo-google-fonts/inter";
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { NavigationContainer } from '@react-navigation/native';
+import Navigator from './routes/homeStack';
 
 export default function App() {
    let [fontsLoaded] = useFonts({
@@ -13,26 +15,11 @@ export default function App() {
      return <></>;
    }
   return (
-    <ImageBackground source={require('./assets/background.png')} style={styles.secondImage}>
-    <ImageBackground
-      source={require("./assets/new_onb.png")}
-      style={styles.image}
-    >
-     <StatusBar style="auto" />
-     <View style={styles.container}>
-        <View>
-            <Text style={styles.subheading}>Define yourself in your unique way.</Text>
-        </View>
-     </View> 
-
-     <TouchableOpacity>
-        <View style={styles.btnBg}>
-          <Text style={styles.btnText}>Get Started</Text>
-          <Ionicons name='arrow-forward' size={20} />
-        </View>
-     </TouchableOpacity>
-    </ImageBackground>
-    </ImageBackground>
+    <View>
+        <NavigationContainer>
+          <Navigator />
+        </NavigationContainer>
+    </View>
   );
 }
 
